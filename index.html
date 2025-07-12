@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Barber</title>
+    <import href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="script" href ="js/script.js">
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+               animate();
+            });
+            
+            const totalIcons = 2;
+            const icons = [];
+
+            class Icon {
+                constructor(id,enderecoIcone) {
+                    this.el = document.createElement("div");
+                    this.el.classList.add("icon");
+                   
+                    
+                     document.body.appendChild(this.el);
+                    this.el = document.createElement("img");
+                    this.el.src = enderecoIcone;
+                    this.el.classList.add("icone_unico");
+                    // this.el.style.backgroundColor = `hsl(19, 12%, 36%)`;
+                    
+                    document.body.appendChild(this.el);
+
+                    this.width = 40;
+                    this.height = 40;
+                    this.x = Math.random() * (window.innerWidth - this.width);
+                    this.y = Math.random() * (window.innerHeight - this.height);
+                    this.dx = (Math.random() * 0.06 + 0.0000010) * (Math.random() < 0.5 ? -1 : 1);
+                    this.dy = (Math.random() * 0.06 + 0.0000010) * (Math.random() < 0.5 ? -1 : 1);
+                }
+
+                move() {
+                    this.x += this.dx;
+                    this.y += this.dy;
+
+                    // Rebote horizontal
+                    if (this.x <= 0 || this.x + this.width >= window.innerWidth) {
+                        this.dx *= -1;
+                        this.x = Math.max(0, Math.min(this.x, window.innerWidth - this.width));
+                    }
+
+                    // Rebote vertical
+                    if (this.y <= 0 || this.y + this.height >= window.innerHeight) {
+                        this.dy *= -1;
+                        this.y = Math.max(0, Math.min(this.y, window.innerHeight - this.height));
+                    }
+
+                    this.el.style.left = `${this.x}px`;
+                    this.el.style.top = `${this.y}px`;
+                }
+            }
+
+            // Cria ícones
+            for (let i = 0; i < totalIcons; i++) {
+                icons.push(new Icon(i,'assets/icones/tesoura.png'));
+                icons.push(new Icon(i,'assets/icones/navalha.png'));
+                icons.push(new Icon(i,'assets/icones/letreiro.png'));
+            }
+
+            function animate() {
+                icons.forEach(icon => icon.move());
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+      </script>  
+</head>
+
+<body>
+    
+    <header>
+       <div class="logo_container">
+           
+            <img src="assets/icones/Logo Branco.png" class="logo">
+
+       </div>
+        <nav >
+            <ul  id="menu">
+                <li><a >HOME</a></li>
+                <li><a >GALERIA</a></li>
+                <li><a >CONTATO</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <div class="conteudo_principal">
+
+            <div class="conteudo_principal__introducao">
+                
+              <img src="assets/Modelo 14.jpeg" class="foto_karen">
+               
+                <p>Olá, meu nome é Karen Barber, sou uma profissional apaixonada por beleza e bem-estar. Com anos de experiência no setor, dedico-me a oferecer serviços de alta qualidade que realçam a beleza natural de cada cliente.
+                Minha missão é proporcionar uma experiência relaxante e transformadora, onde cada pessoa se sinta especial e confiante. Estou sempre atualizada com as últimas tendências e técnicas para garantir que meus clientes recebam o melhor atendimento possível.</p>
+            </div>
+
+
+        </div>
+
+
+
+
+    </main>
+    <footer>
+        <p>2025 - Karen Barber</p>
+    </footer>
+
+</body>
+
+</html>

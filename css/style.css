@@ -1,0 +1,140 @@
+ @font-face {
+     font-family: 'Milionare';
+     src: url('../Millionaire_DEMO.ttf') format('truetype');
+ }
+
+
+ header {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     background: hsl(15, 4%, 18%);
+     border-radius: 12px;
+     /* box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08); */
+     max-width: 600px;
+     margin: 40px auto 0 auto;
+     /* padding: 24px; */
+     box-sizing: border-box;
+     /* background-image: url('../assets/img-fundo/textura-couro.jpg'); */
+     /* background: linear-gradient(180deg, hsl(19, 12%, 36%), hsl(16, 10%, 28%)); */
+     font-family: 'Milionare', Arial, sans-serif;
+     font-size: 20px;
+     opacity: 1;
+     height: 40px;
+     overflow: hidden;
+ }
+
+ .logo_container {
+    height: auto;
+    width: 5%;
+ }
+ header nav {
+    width: 95%;
+ }
+
+ #menu {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    width: 100%;
+    color: white;
+ }
+
+  
+
+
+ header h1 {
+     opacity: 1;
+     color: hsl(21, 12%, 28%);
+     text-shadow:
+         0 0 1px rgb(255, 255, 255),
+         0 0 3px rgb(255, 255, 255),
+         0 0 5px #fdfdfd,
+         0 0 8px rgb(255, 255, 255),
+         0 0 10px rgb(255, 255, 255);
+
+ }
+
+ @media (max-width: 700px) {
+     header {
+         max-width: 95%;
+         padding: 12px;
+     }
+ }
+
+ .conteudo_principal {
+     max-width: 600px;
+     margin: 40px auto;
+     padding: 24px;
+     background: linear-gradient(180deg, hsl(19, 12%, 36%), hsl(16, 10%, 28%));
+     border-radius: 12px;
+     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     box-sizing: border-box;
+     height: 800px;
+     z-index: 0;
+ }
+
+ @media (max-width: 700px) {
+     .conteudo_principal {
+         max-width: 95%;
+         padding: 12px;
+     }
+ }
+
+ body {
+     background-image: url('../assets/img-fundo/img-fundo.jpeg');
+     background-size: cover;
+     background-position: center;
+     position: relative;
+     opacity: 0.8;
+     z-index: 1;
+
+ }
+
+ .icone_unico {
+     width: 50px;
+     height: 50px;
+     position: absolute;
+     z-index: -1;
+ }
+
+.foto_karen {
+    width: 50%;
+    aspect-ratio: 6 / 9;
+    object-fit: cover;
+    border-radius: 1px; 
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+ }
+
+ .conteudo_principal__introducao {
+    display: flex;
+    flex-direction: row;
+ }
+
+ footer {
+     background-color: #222;
+     color: #fff;
+     padding: 16px 0;
+     text-align: center;
+     font-family: 'Roboto', Arial, sans-serif;
+     position: relative;
+     bottom: 0;
+     width: 100%;
+ }
+
+footer p {
+     margin: 0;
+     font-size: 1rem;
+     border-radius: 10px;
+ }
+
+ .logo {
+    width: 100px;
+    height: 85px;
+ }
