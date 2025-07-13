@@ -3,6 +3,11 @@
      src: url('../Millionaire_DEMO.ttf') format('truetype');
  }
 
+body {
+    display: flex;
+    justify-content: center;
+} 
+
 
  header {
      display: flex;
@@ -11,18 +16,16 @@
      justify-content: space-between;
      background: hsl(15, 4%, 18%);
      border-radius: 12px;
-     /* box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08); */
      max-width: 600px;
-     margin: 40px auto 0 auto;
-     /* padding: 24px; */
+     min-width: 600px;
      box-sizing: border-box;
-     /* background-image: url('../assets/img-fundo/textura-couro.jpg'); */
-     /* background: linear-gradient(180deg, hsl(19, 12%, 36%), hsl(16, 10%, 28%)); */
      font-family: 'Milionare', Arial, sans-serif;
      font-size: 20px;
      opacity: 1;
      height: 40px;
      overflow: hidden;
+     position: fixed;
+     z-index: 10;
  }
 
  .logo_container {
@@ -33,14 +36,17 @@
     width: 95%;
  }
 
- #menu {
+ .menu {
     display: flex;
     list-style: none;
     justify-content: space-around;
     width: 100%;
     color: white;
+    
  }
-
+nav ul li {
+    cursor: pointer;
+}
   
 
 
@@ -65,8 +71,9 @@
 
  .conteudo_principal {
      max-width: 600px;
-     margin: 40px auto;
-     padding: 24px;
+     min-width: 600px;
+     margin: 50px auto;
+     padding: 10px;
      background: linear-gradient(180deg, hsl(19, 12%, 36%), hsl(16, 10%, 28%));
      border-radius: 12px;
      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
@@ -74,8 +81,8 @@
      flex-direction: column;
      align-items: center;
      box-sizing: border-box;
-     height: 800px;
-     z-index: 0;
+     height: auto;
+     z-index: 9;
  }
 
  @media (max-width: 700px) {
@@ -87,11 +94,9 @@
 
  body {
      background-image: url('../assets/img-fundo/img-fundo.jpeg');
-     background-size: cover;
-     background-position: center;
      position: relative;
-     opacity: 0.8;
-     z-index: 1;
+     opacity: 1;
+     z-index: -1;
 
  }
 
@@ -104,7 +109,7 @@
 
 .foto_karen {
     width: 50%;
-    aspect-ratio: 6 / 9;
+    /* aspect-ratio: 6 / 9; */
     object-fit: cover;
     border-radius: 1px; 
     border-radius: 10px;
@@ -115,6 +120,8 @@
  .conteudo_principal__introducao {
     display: flex;
     flex-direction: row;
+    position: relative;
+  
  }
 
  footer {
@@ -123,18 +130,119 @@
      padding: 16px 0;
      text-align: center;
      font-family: 'Roboto', Arial, sans-serif;
-     position: relative;
      bottom: 0;
      width: 100%;
+
  }
 
 footer p {
      margin: 0;
      font-size: 1rem;
      border-radius: 10px;
+    
  }
 
  .logo {
     width: 100px;
     height: 85px;
  }
+
+.conteudo_principal__galeria {
+    display: flex;
+    /* background-color: hsl(0, 8%, 5%); */
+   
+}
+
+.galeria_imagens {
+    max-width: 600px;
+    min-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* position: relative; */
+    overflow: hidden;
+
+}
+.moldura {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+ .moldura img {
+     width: 80%;
+    /* aspect-ratio: 6 / 9; */
+    object-fit: fill;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+
+
+
+ /*****MODAL *****************************************************************/
+ /* MODAL */
+    .modal_de_apresentacao_galeria {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal_de_apresentacao_galeria img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #fff;
+    }
+
+    .fechar {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: scale 0.3s ease-in-out;
+    }
+
+    .fechar:hover {
+      scale: 1.2;
+     
+    }
+
+    .navegacao {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .navegacao button {
+      background-color: hsl(19, 12%, 36%);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: background 0.2s;
+      transition: scale 0.5s ease-in-out;
+    }
+
+    .navegacao button:hover {
+      background-color: hsl(16, 10%, 28%);
+      scale:1.2;
+
+     
+    }
+
+ 

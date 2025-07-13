@@ -6,89 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karen Barber</title>
     <import href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="script" href ="js/script.js">
+        <import href="js/script.js">
+            <link rel="stylesheet" href="css/style.css">
+            <script href="js/script.js"> </script>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-               animate();
-            });
-            
-            const totalIcons = 2;
-            const icons = [];
+            <script>
+                let imagensGaleria = [];
+                let indiceAtual = 0;
 
-            class Icon {
-                constructor(id,enderecoIcone) {
-                    this.el = document.createElement("div");
-                    this.el.classList.add("icon");
-                   
-                    
-                     document.body.appendChild(this.el);
-                    this.el = document.createElement("img");
-                    this.el.src = enderecoIcone;
-                    this.el.classList.add("icone_unico");
-                    // this.el.style.backgroundColor = `hsl(19, 12%, 36%)`;
-                    
-                    document.body.appendChild(this.el);
-
-                    this.width = 40;
-                    this.height = 40;
-                    this.x = Math.random() * (window.innerWidth - this.width);
-                    this.y = Math.random() * (window.innerHeight - this.height);
-                    this.dx = (Math.random() * 0.06 + 0.0000010) * (Math.random() < 0.5 ? -1 : 1);
-                    this.dy = (Math.random() * 0.06 + 0.0000010) * (Math.random() < 0.5 ? -1 : 1);
+                function abreFotoNoModal(linkDaImagem) {
+                    indiceAtual = imagensGaleria.indexOf(linkDaImagem);
+                    atualizarImagemModal();
+                    document.getElementById('modalGaleria').style.display = 'flex';
                 }
 
-                move() {
-                    this.x += this.dx;
-                    this.y += this.dy;
-
-                    // Rebote horizontal
-                    if (this.x <= 0 || this.x + this.width >= window.innerWidth) {
-                        this.dx *= -1;
-                        this.x = Math.max(0, Math.min(this.x, window.innerWidth - this.width));
-                    }
-
-                    // Rebote vertical
-                    if (this.y <= 0 || this.y + this.height >= window.innerHeight) {
-                        this.dy *= -1;
-                        this.y = Math.max(0, Math.min(this.y, window.innerHeight - this.height));
-                    }
-
-                    this.el.style.left = `${this.x}px`;
-                    this.el.style.top = `${this.y}px`;
+                function atualizarImagemModal() {
+                    const imagem = document.getElementById('imagemModal');
+                    imagem.src = imagensGaleria[indiceAtual];
                 }
-            }
 
-            // Cria ícones
-            for (let i = 0; i < totalIcons; i++) {
-                icons.push(new Icon(i,'assets/icones/tesoura.png'));
-                icons.push(new Icon(i,'assets/icones/navalha.png'));
-                icons.push(new Icon(i,'assets/icones/letreiro.png'));
-            }
+                function fecharModal() {
+                    document.getElementById('modalGaleria').style.display = 'none';
+                }
 
-            function animate() {
-                icons.forEach(icon => icon.move());
-                requestAnimationFrame(animate);
-            }
+                function proximaImagem() {
+                    indiceAtual = (indiceAtual + 1) % imagensGaleria.length;
+                    atualizarImagemModal();
+                }
 
-            animate();
-      </script>  
+                function imagemAnterior() {
+                    indiceAtual = (indiceAtual - 1 + imagensGaleria.length) % imagensGaleria.length;
+                    atualizarImagemModal();
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Carrega todas as imagens da galeria
+                    imagensGaleria = Array.from(document.querySelectorAll('.galeria_imagens img')).map(img => img.src);
+
+                    // Clicando fora da imagem fecha o modal
+                    document.getElementById('modalGaleria').addEventListener('click', (e) => {
+                        if (e.target.id === 'modalGaleria') {
+                            fecharModal();
+                        }
+                    });
+                });
+            </script>
 </head>
 
 <body>
-    
+
     <header>
-       <div class="logo_container">
-           
+        <div class="logo_container">
+
             <img src="assets/icones/Logo Branco.png" class="logo">
 
-       </div>
-        <nav >
-            <ul  id="menu">
-                <li><a >HOME</a></li>
-                <li><a >GALERIA</a></li>
-                <li><a >CONTATO</a></li>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a>HOME</a></li>
+                <li><a>GALERIA</a></li>
+                <li><a>CONTATO</a></li>
             </ul>
         </nav>
 
@@ -97,23 +74,96 @@
         <div class="conteudo_principal">
 
             <div class="conteudo_principal__introducao">
-                
-              <img src="assets/Modelo 14.jpeg" class="foto_karen">
-               
-                <p>Olá, meu nome é Karen Barber, sou uma profissional apaixonada por beleza e bem-estar. Com anos de experiência no setor, dedico-me a oferecer serviços de alta qualidade que realçam a beleza natural de cada cliente.
-                Minha missão é proporcionar uma experiência relaxante e transformadora, onde cada pessoa se sinta especial e confiante. Estou sempre atualizada com as últimas tendências e técnicas para garantir que meus clientes recebam o melhor atendimento possível.</p>
+
+                <img src="assets/Modelo 14.jpeg" class="foto_karen">
+
+                <p>Olá, meu nome é Karen Barber, sou uma profissional apaixonada por beleza e bem-estar. Com anos de
+                    experiência no setor, dedico-me a oferecer serviços de alta qualidade que realçam a beleza natural
+                    de cada cliente.
+                    Minha missão é proporcionar uma experiência relaxante e transformadora, onde cada pessoa se sinta
+                    especial e confiante. Estou sempre atualizada com as últimas tendências e técnicas para garantir que
+                    meus clientes recebam o melhor atendimento possível.</p>
             </div>
 
-
-        </div>
-
+            <div class="menu">
 
 
+                <p>Explore minha galeria de fotos para ver alguns dos meus trabalhos mais recentes. Cada imagem reflete
+                    minha dedicação e paixão pelo que faço.</p>
+            </div>
+            <div class="conteudo_principal__galeria">
+                <div class="conteudo_principal__galeria" id="galeria">
+                    <!-- Modal -->
+                    <div class="modal_de_apresentacao_galeria" id="modalGaleria">
+                        <span class="fechar" onclick="fecharModal()">&times;</span>
+                        <div class="navegacao">
+                            <button onclick="imagemAnterior()">⟨</button>
+                            <button onclick="proximaImagem()">⟩</button>
+                        </div>
+                        <img id="imagemModal" src="" alt="Foto Ampliada">
+                    </div>
 
-    </main>
-    <footer>
-        <p>2025 - Karen Barber</p>
-    </footer>
+                    <div class="galeria_imagens">
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 1.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 2.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 3.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 4.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 5.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 6.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 7.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 8.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 9.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modela 10.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 11.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 12.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                        <div class="moldura">
+                            <img src="assets/Modelo 13.jpeg" onclick="abreFotoNoModal(this.src)">
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <p>2025 - Karen Barber</p>
+            </footer>
+
 
 </body>
 
