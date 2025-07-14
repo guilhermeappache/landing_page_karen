@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAREN BARBER</title>
@@ -50,25 +51,33 @@
                         }
                     });
                 });
+
+                    
             </script>
 </head>
 
-<body>
+<body id="home">
 
     <header>
-        <div class="logo_container">
-
-            <img src="assets/icones/Logo Branco.png" class="logo">
-
-        </div>
-            <nav>
-                <ul class="menu">
-                    <li><a>HOME</a></li>
-                    <li><a>GALERIA</a></li>
-                    <li><a>CONTATO</a></li>
-                </ul>
+        <div class="logo_container"  >
             
-            </nav>
+       
+            <img src="assets/icones/Logo Branco.png" class="logo">
+            
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#galeria">GALERIA</a></li>
+                <!-- <li onclick="mostraContato()"><a>CONTATO</a></li> -->
+            </ul>
+            
+        </nav>
+        
+        <div class="logo_container_redes_sociais">
+            <img class="logo_rede_social"  href="" src="assets/icones-redes-sociais/instagram-preto.png" class="icone_rede_social">
+            <img class="logo_rede_social" href="" src="assets/icones-redes-sociais/whatsapp-preto.png" class="icone_rede_social">
+        </div>
             
        
     </header>
@@ -76,8 +85,8 @@
     <main>
      
 
-        <div class="conteudo_principal">
-
+        <div class="conteudo_principal" id="home">
+          
             <div class="conteudo_principal__introducao">
 
                 <img src="assets/Modelo 14.jpeg" class="foto_karen">
@@ -96,7 +105,7 @@
                 <p>Explore minha galeria de fotos para ver alguns dos meus trabalhos mais recentes. Cada imagem reflete
                     minha dedicação e paixão pelo que faço.</p>
             </div>
-            <div class="conteudo_principal__galeria">
+            <div class="conteudo_principal__galeria" id="galeria">
                 
                 <div class="conteudo_principal__galeria" id="galeria">
                     <!-- Modal -->
